@@ -4,6 +4,18 @@ public class Payloads {
 	//return in String since it will be passed within body and that requires Payload in string format
 	//making the method static so that directly use without creating object
 	
+	/*Advance payload cReation Strategies
+	 * 
+	 * 	1.Dynamically Build JSON with external data Inputs
+	 *  2.Parameterize the API Tests with multiple data sets.
+	 *  3.How to send static JSON files(payloads) directly into Post method of RestAssured
+	 *  4.Feed JSON Payload from using Excel with HAshMAp
+	 *  5.Using POJO classes via serialization and deserialization
+	 * 
+	 */
+
+	
+	
 	public static String addPlace()
 	{
 		return "{\r\n"
@@ -73,5 +85,31 @@ public class Payloads {
 				+ "\r\n"
 				+ "}";
 	}
+	
+	public static String addBook(String isbn, String aisle)
+	{
+		String s ="{\r\n"
+				+ "    \"name\": \"Learn Appium Automation wigdrtgth Java\",\r\n"
+				+ "    \"isbn\": \""+isbn+"\",\r\n"
+				+ "    \"aisle\": \""+aisle+"\",\r\n"
+				+ "    \"author\": \"John foe\"\r\n"
+				+ "}";
+		
+		return s;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
