@@ -2,6 +2,7 @@ package Basics;
 
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 public class GoogleMapAPis {
 
@@ -12,6 +13,10 @@ public class GoogleMapAPis {
 		//when -- submit the api with resource and http method
 		//then -- validate the response
 		// body()-- method requires json body in string format
+		/* equalTo() is also coming from static org.hamcrest.Matchers.*; package as a static--- used especially for body validation
+		not necessarily required for other validation like header*/
+		//log().all() to log everything in the output as a part of request and response
+		//the same methods used in given() is when used in then () acts as output validation
 		
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
 		given().log().all().queryParam("key", "qaclick123").header("Content-Type","application/json")
@@ -33,7 +38,8 @@ public class GoogleMapAPis {
 				+ "}\r\n"
 				+ "")
 		.when().post("/maps/api/place/add/json")
-		.then().log().all().assertThat().statusCode(200);
+		.then().log().all().assertThat().statusCode(200).body("scope", equalTo("APP"))
+		.header("Server", "Apache/2.4.52 (Ubuntu)");
 	}
 	
 	
