@@ -6,13 +6,17 @@ import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.testng.Assert;
 
 import files.Payloads;
 
 public class GoogleMapAPis {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		
 		//given -- all input details
@@ -28,11 +32,15 @@ public class GoogleMapAPis {
 		//if complex json then we need to use parent.child[index].child
 		// 2 ways to do assertion one directly using body() and hamcrest package or you first extract and convert to json and then validate
 		//passing dynamic values you need --->>  "+variable+"
+		//whe have Files.readAllBytes()-- and within this we can pass file location but it is always expecting
+		// Path class object so .. pass your file location into path class and then that path class into readAllBytes
+		//then pass the entire part into String constuctor as new String (....)
 		
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
 		String resp =given().
 		
-		log().all().queryParam("key", "qaclick123").header("Content-Type","application/json").body(Payloads.addPlace())
+		log().all().queryParam("key", "qaclick123").header("Content-Type","application/json")
+		.body(new String(Files.readAllBytes(Paths.get("C:\\Eclipse\\2025-03\\workspace\\RestAssuredFramework\\addBook.json"))))
 		.when().
 		
 		post("/maps/api/place/add/json")

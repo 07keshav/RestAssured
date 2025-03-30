@@ -1,6 +1,5 @@
 package Basics;
 
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -8,6 +7,14 @@ import files.Payloads;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
+
+
+// taking static data Directly from file having .json extension for that 
+// We need to convert file data -->> byte and then byte data will be converted  -->> string
+
+//whe have Files.readAllBytes()-- and within this we can pass file location but it is always expecting
+// Path class object so .. pass your file location into path class and then that path class into readAllBytes
+//then pass the entire part into String constuctor as new String (....)
 
 public class LibraryAPI {
 
