@@ -3,6 +3,7 @@ package pOJO;
 // inner JSon must though of as another POJo Class
 // every array consider just for creation purpose as single json the n you will realize first create one more class 
 // and then do that as list of class name as return or data type
+// since courses is of the type Courses using getCourses will return the object of that courses class
 
 public class CourseDetails {
 	
@@ -11,7 +12,7 @@ public class CourseDetails {
 	private String services;
 	private String expertise;
 	private Courses courses;
-	private String linkdein;
+	private String linkedIn;
 	
 	
 	
@@ -46,11 +47,11 @@ public class CourseDetails {
 	public void setCourses(Courses courses) {
 		this.courses = courses;
 	}
-	public String getLinkdein() {
-		return linkdein;
+	public String getLinkedIn() {
+		return linkedIn;
 	}
-	public void setLinkdein(String linkdein) {
-		this.linkdein = linkdein;
+	public void setLinkdeIn(String linkedIn) {
+		this.linkedIn = linkedIn;
 	}
 	
 	
