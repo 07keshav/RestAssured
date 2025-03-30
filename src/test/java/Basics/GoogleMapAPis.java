@@ -12,8 +12,6 @@ import java.nio.file.Paths;
 
 import org.testng.Assert;
 
-import files.Payloads;
-
 public class GoogleMapAPis {
 
 	public static void main(String[] args) throws IOException
